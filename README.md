@@ -10,11 +10,11 @@ PhotoSlider can a simple photo slider and delete slider with swiping.
 
 ## Installation
 
-PhotoSlider is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+PhotoSlider is available through [Carthage](https://github.com/Carthage/Carthage). To install
+it, simply add the following line to your Cartfile:
 
 ```ruby
-pod "PhotoSlider"
+github "elkraneo/Kingfisher"
 ```
 
 ## Usage
@@ -38,9 +38,12 @@ func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath i
 ## Requirements
 Xcode 6 is required.
 
-## Author
+## Original Author
 
 nakajijapan, pp.kupepo.gattyanmo@gmail.com
+
+heavily modified to avoid cocoapods dependency.
+uses Kingfisher instead webimage
 
 ## License
 
