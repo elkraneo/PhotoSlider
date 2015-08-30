@@ -12,6 +12,7 @@ import PhotoSlider
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PhotoSliderDelegate {
     
     @IBOutlet var tableView:UITableView!
+
     
     var collectionView:UICollectionView!
 
@@ -30,6 +31,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return false
     }
     
+    override func viewDidLayoutSubviews() {
+        if self.collectionView != nil {
+            self.collectionView.reloadData()
+        }
+    }
+    
     // MARK: - UITableViewDataSource
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -43,16 +50,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = self.tableView.dequeueReusableCellWithIdentifier("cell01") as! UITableViewCell
         
-        var collectionView = cell.viewWithTag(1) as! UICollectionView
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
+        self.collectionView = cell.viewWithTag(1) as! UICollectionView
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+
         return cell
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+
         if indexPath.row == 0 {
-            return UIScreen.mainScreen().bounds.size.width
+            if UIDevice.currentDevice().orientation == UIDeviceOrientation.Portrait || UIDevice.currentDevice().orientation == UIDeviceOrientation.PortraitUpsideDown {
+                return tableView.bounds.size.width
+            } else {
+                return tableView.bounds.size.height
+            }
         }
         
         return 0.0;
@@ -78,21 +90,27 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width:collectionView.bounds.size.width, height:collectionView.bounds.size.width)
+
+        if UIDevice.currentDevice().orientation == UIDeviceOrientation.Portrait || UIDevice.currentDevice().orientation == UIDeviceOrientation.PortraitUpsideDown {
+            return CGSize(width:collectionView.bounds.size.width, height:collectionView.bounds.size.width)
+        } else {
+            return CGSize(width:self.tableView.bounds.size.width, height:collectionView.bounds.size.height)
+        }
+        
     }
     
     // MARK: - UICollectionViewDelegate
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        var slider = PhotoSlider.ViewController(imageURLs: self.imageURLs)
-        slider.modalPresentationStyle = .OverCurrentContext
-        slider.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
-        slider.delegate = self
-        slider.index = indexPath.row
+        var photoSlider = PhotoSlider.ViewController(imageURLs: self.imageURLs)
+        photoSlider.modalPresentationStyle = .OverCurrentContext
+        photoSlider.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+        photoSlider.delegate = self
+        photoSlider.currentPage = indexPath.row
 
         UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: UIStatusBarAnimation.Fade)
-        self.presentViewController(slider, animated: true, completion: nil)
+        self.presentViewController(photoSlider, animated: true, completion: nil)
     }
     
     // MARK: - PhotoSliderDelegate
@@ -100,7 +118,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func photoSliderControllerWillDismiss(viewController: PhotoSlider.ViewController) {
         UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: UIStatusBarAnimation.Fade)
     }
-
+    
+    // MARK: - UIContentContainer
+    
+    internal override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        self.tableView.reloadData()
+        
+    }
+    
 }
 
 
