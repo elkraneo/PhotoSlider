@@ -14,7 +14,7 @@ PhotoSlider is available through [Carthage](https://github.com/Carthage/Carthage
 it, simply add the following line to your Cartfile:
 
 ```ruby
-github "elkraneo/PhotoSlider" "0.4.0"
+github "elkraneo/PhotoSlider" "0.4.1"
 ```
 
 ## Usage
