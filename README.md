@@ -14,7 +14,7 @@ PhotoSlider is available through [Carthage](https://github.com/Carthage/Carthage
 it, simply add the following line to your Cartfile:
 
 ```ruby
-github "elkraneo/Kingfisher"
+github "elkraneo/PhotoSlider" "0.4.0"
 ```
 
 ## Usage
@@ -43,7 +43,8 @@ Xcode 6 is required.
 nakajijapan, pp.kupepo.gattyanmo@gmail.com
 
 heavily modified to avoid cocoapods dependency.
-uses Kingfisher instead webimage
+
+uses [Kingfisher](https://github.com/onevcat/Kingfisher) instead [SDWebImage](https://github.com/rs/SDWebImage).
 
 ## License
 
