@@ -16,15 +16,15 @@
 		405B03981B9377BA00C26CC2 /* PhotoSliderImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B03901B9377BA00C26CC2 /* PhotoSliderImageView.swift */; };
 		405B03991B9377BA00C26CC2 /* PhotoSliderProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B03911B9377BA00C26CC2 /* PhotoSliderProgressView.swift */; };
 		405B039A1B9377BA00C26CC2 /* PhotoSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B03921B9377BA00C26CC2 /* PhotoSliderViewController.swift */; };
-		405B039C1B93799200C26CC2 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405B039B1B93799200C26CC2 /* Kingfisher.framework */; };
 		405B03AC1B9384D500C26CC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B03AB1B9384D500C26CC2 /* AppDelegate.swift */; };
 		405B03B31B9384D500C26CC2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 405B03B21B9384D500C26CC2 /* Images.xcassets */; };
 		405B03B61B9384D500C26CC2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 405B03B41B9384D500C26CC2 /* LaunchScreen.xib */; };
 		405B03C21B9384D500C26CC2 /* PhotoSliderDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B03C11B9384D500C26CC2 /* PhotoSliderDemoTests.swift */; };
 		405B03C91B93851100C26CC2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B03461B93774E00C26CC2 /* ViewController.swift */; };
 		405B03CB1B9385C700C26CC2 /* PhotoSliderKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405B03691B9377A100C26CC2 /* PhotoSliderKit.framework */; };
-		405B03CC1B9385E600C26CC2 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405B039B1B93799200C26CC2 /* Kingfisher.framework */; };
 		405B03CD1B93861E00C26CC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405B03481B93774E00C26CC2 /* Main.storyboard */; };
+		AFD8B8241BA4D42E00CB5B30 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD8B8231BA4D42E00CB5B30 /* Kingfisher.framework */; };
+		AFD8B8251BA4D45E00CB5B30 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD8B8231BA4D42E00CB5B30 /* Kingfisher.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,7 +59,6 @@
 		405B03901B9377BA00C26CC2 /* PhotoSliderImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSliderImageView.swift; sourceTree = "<group>"; };
 		405B03911B9377BA00C26CC2 /* PhotoSliderProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSliderProgressView.swift; sourceTree = "<group>"; };
 		405B03921B9377BA00C26CC2 /* PhotoSliderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoSliderViewController.swift; sourceTree = "<group>"; };
-		405B039B1B93799200C26CC2 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = "<group>"; };
 		405B03A71B9384D500C26CC2 /* PhotoSliderDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoSliderDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		405B03AA1B9384D500C26CC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		405B03AB1B9384D500C26CC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +67,7 @@
 		405B03BB1B9384D500C26CC2 /* PhotoSliderDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoSliderDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		405B03C01B9384D500C26CC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		405B03C11B9384D500C26CC2 /* PhotoSliderDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSliderDemoTests.swift; sourceTree = "<group>"; };
+		AFD8B8231BA4D42E00CB5B30 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = ../Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				405B039C1B93799200C26CC2 /* Kingfisher.framework in Frameworks */,
+				AFD8B8241BA4D42E00CB5B30 /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,8 +91,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFD8B8251BA4D45E00CB5B30 /* Kingfisher.framework in Frameworks */,
 				405B03CB1B9385C700C26CC2 /* PhotoSliderKit.framework in Frameworks */,
-				405B03CC1B9385E600C26CC2 /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +131,7 @@
 		405B036A1B9377A100C26CC2 /* PhotoSliderKit */ = {
 			isa = PBXGroup;
 			children = (
-				405B039B1B93799200C26CC2 /* Kingfisher.framework */,
+				AFD8B8231BA4D42E00CB5B30 /* Kingfisher.framework */,
 				405B03891B9377BA00C26CC2 /* Assets */,
 				405B038E1B9377BA00C26CC2 /* Classes */,
 				405B036D1B9377A100C26CC2 /* PhotoSliderKit.h */,
@@ -316,6 +316,8 @@
 		405B03371B93774E00C26CC2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = lekraneo;
 				TargetAttributes = {

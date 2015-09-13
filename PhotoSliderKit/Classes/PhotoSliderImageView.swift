@@ -19,7 +19,7 @@ class PhotoSliderImageView: UIView, UIScrollViewDelegate {
         self.initialize()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.initialize()
     }
@@ -58,12 +58,7 @@ class PhotoSliderImageView: UIView, UIScrollViewDelegate {
         self.addGestureRecognizer(doubleTabGesture)
         
         self.imageView.autoresizingMask =
-            UIViewAutoresizing.FlexibleWidth |
-            UIViewAutoresizing.FlexibleLeftMargin |
-            UIViewAutoresizing.FlexibleRightMargin |
-            UIViewAutoresizing.FlexibleTopMargin |
-            UIViewAutoresizing.FlexibleHeight |
-            UIViewAutoresizing.FlexibleBottomMargin
+            [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleLeftMargin, UIViewAutoresizing.FlexibleRightMargin, UIViewAutoresizing.FlexibleTopMargin, UIViewAutoresizing.FlexibleHeight, UIViewAutoresizing.FlexibleBottomMargin]
         
     }
     

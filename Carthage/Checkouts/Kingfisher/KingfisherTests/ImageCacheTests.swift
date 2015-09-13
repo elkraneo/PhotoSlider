@@ -67,8 +67,6 @@ class ImageCacheTests: XCTestCase {
     }
     
     func testClearDiskCache() {
-        let paths = NSSearchPathForDirectoriesInDomains(.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-        let diskCachePath = paths.first!.stringByAppendingPathComponent(cacheName)
         
         let expectation = expectationWithDescription("wait for clearing disk cache")
         let key = testKeys[0]
@@ -89,7 +87,7 @@ class ImageCacheTests: XCTestCase {
     }
     
     func testClearMemoryCache() {
-        let expectation = expectationWithDescription("wait for retriving image")
+        let expectation = expectationWithDescription("wait for retrieving image")
         
         cache.storeImage(testImage, forKey: testKeys[0], toDisk: true) { () -> () in
             self.cache.clearMemoryCache()
@@ -103,7 +101,7 @@ class ImageCacheTests: XCTestCase {
     }
     
     func testNoImageFound() {
-        let expectation = expectationWithDescription("wait for retriving image")
+        let expectation = expectationWithDescription("wait for retrieving image")
         
         cache.clearDiskCacheWithCompletionHandler { () -> () in
             self.cache.retrieveImageForKey(testKeys[0], options: KingfisherManager.OptionsNone, completionHandler: { (image, type) -> () in
@@ -117,7 +115,7 @@ class ImageCacheTests: XCTestCase {
     }
     
     func testStoreImageInMemory() {
-        let expectation = expectationWithDescription("wait for retriving image")
+        let expectation = expectationWithDescription("wait for retrieving image")
         
         cache.storeImage(testImage, forKey: testKeys[0], toDisk: false) { () -> () in
             self.cache.retrieveImageForKey(testKeys[0], options: KingfisherManager.OptionsNone, completionHandler: { (image, type) -> () in
@@ -135,9 +133,14 @@ class ImageCacheTests: XCTestCase {
         
         storeMultipleImages { () -> () in
             let paths = NSSearchPathForDirectoriesInDomains(.CachesDirectory, NSSearchPathDomainMask.UserDomainMask, true)
-            let diskCachePath = paths.first!.stringByAppendingPathComponent(cacheName)
+            let diskCachePath = (paths.first! as NSString).stringByAppendingPathComponent(cacheName)
             
-            let files = NSFileManager.defaultManager().contentsOfDirectoryAtPath(diskCachePath, error:nil)
+            let files: [AnyObject]?
+            do {
+                files = try NSFileManager.defaultManager().contentsOfDirectoryAtPath(diskCachePath)
+            } catch _ {
+                files = nil
+            }
             XCTAssert(files?.count == 4, "All test images should be at locaitons. Expected 4, actually \(files?.count)")
             
             expectation.fulfill()
@@ -160,9 +163,9 @@ class ImageCacheTests: XCTestCase {
         self.waitForExpectationsWithTimeout(5, handler: nil)
     }
     
-    func testRetrivingImagePerformance() {
+    func testRetrievingImagePerformance() {
 
-        let expectation = self.expectationWithDescription("wait for retriving image")
+        let expectation = self.expectationWithDescription("wait for retrieving image")
         self.cache.storeImage(testImage, forKey: testKeys[0], toDisk: true) { () -> () in
             self.measureBlock({ () -> Void in
                 for _ in 1 ..< 1000 {
@@ -176,7 +179,7 @@ class ImageCacheTests: XCTestCase {
     }
     
     func testCleanDiskCacheNotification() {
-        let expectation = expectationWithDescription("wait for retriving image")
+        let expectation = expectationWithDescription("wait for retrieving image")
         
         cache.storeImage(testImage, forKey: testKeys[0], toDisk: true) { () -> () in
 
