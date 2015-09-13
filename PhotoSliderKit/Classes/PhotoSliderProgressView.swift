@@ -17,7 +17,7 @@ public class PhotoSliderProgressView: UIView {
         self.backgroundColor = UIColor.clearColor()
     }
 
-    public required init(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.backgroundColor = UIColor.clearColor()
     }
@@ -73,7 +73,7 @@ public class PhotoSliderProgressView: UIView {
             return
         }
         
-        var animation = CABasicAnimation(keyPath: "strokeEnd")
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = NSNumber(float: Float(self.progressLayer.strokeEnd))
         animation.toValue = NSNumber(float: progress)
         animation.duration = 0.05
