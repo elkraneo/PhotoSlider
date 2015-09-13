@@ -1,27 +1,30 @@
-# PhotoSlider for Swift
+# PhotoSlider for Swift 2
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 PhotoSlider can a simple photo slider and delete slider with swiping.
 
 
+
 <img src="https://raw.githubusercontent.com/nakajijapan/PhotoSlider/master/demo.gif" width="300" />
+
 
 
 ## Installation
 
-PhotoSlider is available through [Carthage](https://github.com/Carthage/Carthage). To install
-it, simply add the following line to your Cartfile:
+PhotoSlider is available through [Carthage](https://github.com/Carthage/Carthage). 
 
-```ruby
-github "elkraneo/PhotoSlider" "0.4.1"
+To install it, simply add the following line to your Cartfile:
+
+``` ruby
+github "metodowhite/PhotoSlider" "0.5.0"
 ```
 
 ## Usage
 
 
 
-```swift
+``` swift
 
 func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
 
@@ -36,15 +39,14 @@ func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath i
 ```
 
 ## Requirements
-Xcode 6 is required.
+
+Xcode 7 & Swift 2 is required.
 
 ## Original Author
 
 nakajijapan, pp.kupepo.gattyanmo@gmail.com
 
-heavily modified to avoid cocoapods dependency.
-
-uses [Kingfisher](https://github.com/onevcat/Kingfisher) instead [SDWebImage](https://github.com/rs/SDWebImage).
+heavily modified to use [Carthage](https://github.com/Carthage/Carthage), [Kingfisher](https://github.com/onevcat/Kingfisher) instead [SDWebImage](https://github.com/rs/SDWebImage), and Swift 2.
 
 ## License
 
