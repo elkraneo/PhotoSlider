@@ -49,13 +49,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = self.tableView.dequeueReusableCellWithIdentifier("cell01") as! UITableViewCell
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("cell01")
         
-        self.collectionView = cell.viewWithTag(1) as! UICollectionView
+        self.collectionView = cell!.viewWithTag(1) as! UICollectionView
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
-        return cell
+        return cell!
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

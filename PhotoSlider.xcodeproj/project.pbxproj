@@ -23,7 +23,6 @@
 		405B03C91B93851100C26CC2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B03461B93774E00C26CC2 /* ViewController.swift */; };
 		405B03CB1B9385C700C26CC2 /* PhotoSliderKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 405B03691B9377A100C26CC2 /* PhotoSliderKit.framework */; };
 		405B03CD1B93861E00C26CC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 405B03481B93774E00C26CC2 /* Main.storyboard */; };
-		AFD8B8241BA4D42E00CB5B30 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD8B8231BA4D42E00CB5B30 /* Kingfisher.framework */; };
 		AFD8B8251BA4D45E00CB5B30 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFD8B8231BA4D42E00CB5B30 /* Kingfisher.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,7 +74,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFD8B8241BA4D42E00CB5B30 /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +129,6 @@
 		405B036A1B9377A100C26CC2 /* PhotoSliderKit */ = {
 			isa = PBXGroup;
 			children = (
-				AFD8B8231BA4D42E00CB5B30 /* Kingfisher.framework */,
 				405B03891B9377BA00C26CC2 /* Assets */,
 				405B038E1B9377BA00C26CC2 /* Classes */,
 				405B036D1B9377A100C26CC2 /* PhotoSliderKit.h */,
@@ -193,6 +190,7 @@
 				405B03AB1B9384D500C26CC2 /* AppDelegate.swift */,
 				405B03B21B9384D500C26CC2 /* Images.xcassets */,
 				405B03B41B9384D500C26CC2 /* LaunchScreen.xib */,
+				AFD8B8231BA4D42E00CB5B30 /* Kingfisher.framework */,
 				405B03A91B9384D500C26CC2 /* Supporting Files */,
 			);
 			path = PhotoSliderDemo;
@@ -245,7 +243,6 @@
 				405B03651B9377A100C26CC2 /* Frameworks */,
 				405B03661B9377A100C26CC2 /* Headers */,
 				405B03671B9377A100C26CC2 /* Resources */,
-				405B03A11B93823600C26CC2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -318,7 +315,7 @@
 			attributes = {
 				LastSwiftMigration = 0700;
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = lekraneo;
 				TargetAttributes = {
 					405B03681B9377A100C26CC2 = {
@@ -396,20 +393,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		405B03A11B93823600C26CC2 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
 		405B03CA1B93857E00C26CC2 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -519,6 +502,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -603,6 +587,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.metodowhite.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -628,6 +613,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.metodowhite.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -648,6 +634,7 @@
 				);
 				INFOPLIST_FILE = PhotoSliderKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.metodowhite.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoSlider.app/PhotoSlider";
 			};
@@ -662,6 +649,7 @@
 				);
 				INFOPLIST_FILE = PhotoSliderKitTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.metodowhite.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoSlider.app/PhotoSlider";
 			};
@@ -683,6 +671,7 @@
 				INFOPLIST_FILE = PhotoSliderDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)Carthage/Build/iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.metodowhite.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -699,6 +688,7 @@
 				INFOPLIST_FILE = PhotoSliderDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks $(PROJECT_DIR)Carthage/Build/iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.metodowhite.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -717,6 +707,7 @@
 				);
 				INFOPLIST_FILE = PhotoSliderDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.metodowhite.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoSliderDemo.app/PhotoSliderDemo";
 			};
@@ -732,6 +723,7 @@
 				);
 				INFOPLIST_FILE = PhotoSliderDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.metodowhite.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoSliderDemo.app/PhotoSliderDemo";
 			};
