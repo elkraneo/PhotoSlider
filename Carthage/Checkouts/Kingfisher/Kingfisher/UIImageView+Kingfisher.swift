@@ -195,9 +195,13 @@ public extension UIImageView {
                 })
             }
             }, completionHandler: {[weak self] (image, error, cacheType, imageURL) -> () in
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                
+                dispatch_async_safely_main_queue {
                     if let sSelf = self where imageURL == sSelf.kf_webURL && image != nil {
-                        if let transition = optionsInfo?[.Transition] as? ImageTransition {
+                        
+                        if let transitionItem = optionsInfo?.kf_findFirstMatch(.Transition(.None)),
+                            case .Transition(let transition) = transitionItem {
+                            
                             UIView.transitionWithView(sSelf, duration: 0.0, options: [], animations: { () -> Void in
                                 indicator?.stopAnimating()
                                 }, completion: { (finished) -> Void in
@@ -215,7 +219,7 @@ public extension UIImageView {
                     }
                     
                     completionHandler?(image: image, error: error, cacheType: cacheType, imageURL: imageURL)
-                })
+                }
             })
         
         return task
@@ -281,7 +285,8 @@ public extension UIImageView {
             } else {
                 if newValue {
                     let indicator = UIActivityIndicatorView(activityIndicatorStyle:.Gray)
-                    indicator.center = center
+                    indicator.center = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds))
+                    
                     indicator.autoresizingMask = [.FlexibleLeftMargin, .FlexibleRightMargin, .FlexibleBottomMargin, .FlexibleTopMargin]
                     indicator.hidden = true
                     indicator.hidesWhenStopped = true
@@ -319,7 +324,7 @@ public extension UIImageView {
                       placeholderImage: UIImage?,
                                options: KingfisherOptions) -> RetrieveImageTask
     {
-        return kf_setImageWithURL(URL, placeholderImage: placeholderImage, optionsInfo: [.Options: options], progressBlock: nil, completionHandler: nil)
+        return kf_setImageWithURL(URL, placeholderImage: placeholderImage, optionsInfo: [.Options(options)], progressBlock: nil, completionHandler: nil)
     }
     
     @available(*, deprecated=1.2, message="Use -kf_setImageWithURL:placeholderImage:optionsInfo:completionHandler: instead.")
@@ -328,7 +333,7 @@ public extension UIImageView {
                                options: KingfisherOptions,
                      completionHandler: CompletionHandler?) -> RetrieveImageTask
     {
-        return kf_setImageWithURL(URL, placeholderImage: placeholderImage, optionsInfo: [.Options: options], progressBlock: nil, completionHandler: completionHandler)
+        return kf_setImageWithURL(URL, placeholderImage: placeholderImage, optionsInfo: [.Options(options)], progressBlock: nil, completionHandler: completionHandler)
     }
     
     @available(*, deprecated=1.2, message="Use -kf_setImageWithURL:placeholderImage:optionsInfo:progressBlock:completionHandler: instead.")
@@ -338,7 +343,7 @@ public extension UIImageView {
                          progressBlock: DownloadProgressBlock?,
                      completionHandler: CompletionHandler?) -> RetrieveImageTask
     {
-        return kf_setImageWithURL(URL, placeholderImage: placeholderImage, optionsInfo: [.Options: options], progressBlock: progressBlock, completionHandler: completionHandler)
+        return kf_setImageWithURL(URL, placeholderImage: placeholderImage, optionsInfo: [.Options(options)], progressBlock: progressBlock, completionHandler: completionHandler)
     }
     
 }

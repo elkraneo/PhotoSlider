@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "Kingfisher"
-  s.version      = "1.6.0"
+  s.version      = "1.7.0"
   s.summary      = "A lightweight and pure Swift implemented library for downloading and cacheing image from the web."
 
   s.description  = <<-DESC
@@ -29,7 +29,8 @@ Pod::Spec.new do |s|
   # s.osx.deployment_target = "10.7"
 
   s.source       = { :git => "https://github.com/onevcat/Kingfisher.git", :tag => s.version }
-  s.source_files  = "Kingfisher/*.swift"
+  s.source_files  = ["Kingfisher/*.swift", "Kingfisher/Kingfisher.h"]
+  s.public_header_files = ["Kingfisher/Kingfisher.h"]
   s.requires_arc = true
   s.framework = "CFNetwork"
 
