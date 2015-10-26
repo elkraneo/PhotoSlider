@@ -68,7 +68,7 @@ class PhotoSliderImageView: UIView, UIScrollViewDelegate {
         self.imageView.kf_setImageWithURL(
             imageURL,
             placeholderImage: nil,
-            optionsInfo: [.Options: KingfisherOptions.ForceRefresh],
+            optionsInfo: [.Options(KingfisherOptions.ForceRefresh)],
             progressBlock: { (receivedSize, totalSize) -> () in
                 let progress = Float(receivedSize) / Float(totalSize)
                 self.progressView.animateCurveToProgress(progress)
